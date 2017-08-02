@@ -3,12 +3,18 @@ require './lib/events'
 require './lib/ticket'
 
 def run_app
+  user_coordinates = []
   set_up
-  user_choice
+  user_coordinates = user_choice
+  user_coordinates
 end
 
 def user_choice
   puts "Please input Coordinates"
+  coordinates = gets.chomp.gsub(/[^\d]/, '')
+  user_coordinates = coordinates.scan /\w/
+  user_coordinates.map! {|x| x.to_i}
+  return user_coordinates
 end
 
 def set_up

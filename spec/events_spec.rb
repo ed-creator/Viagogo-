@@ -1,15 +1,26 @@
-require 'events.rb'
+require 'events'
 
-describe Event do
+describe Events do
 
-  subject(:card) {described_class.new("test", 1,2,1)}
+  subject(:card) {described_class.new}
+  let(:event1) {:event1}
+  let(:event2) {:event2}
+
   describe '#initialize' do
-    it 'checks events are made outside the given cordinates (-10..10) fail' do
-      expect{described_class.new("test", -11,1,2)}.to raise_error("cordinates must be within range")
+    it 'starts with an empth event array' do
+      expect(subject.event_list).to eq []
     end
-    it 'checks events within the given cordinates (-10..10) pass' do
-      expect(subject.x_cordinate).to eq 1
-      expect(subject.y_cordinate).to eq 2
+  describe '#add_event' do
+    it 'can add a single event' do
+      subject.add_event(event1)
+      expect(subject.event_list).to eq [event1]
     end
+    it 'can add multiple evens' do
+      subject.add_event(event1)
+      subject.add_event(event2)
+      expect(subject.event_list).to eq [event1, event2]
+    end
+  end
+
   end
 end

@@ -2,7 +2,7 @@ class Event
 
   attr_reader :coordinates, :id
 
-  def initialize(x, y, id)
+  def initialize(id, x=random_coordinate, y=random_coordinate)
     raise ("cordinates must be within range") if 10 > y && y < -10
     raise ("cordinates must be within range") if 10 > x && x < -10
     @coordinates = [x,y]
@@ -10,9 +10,11 @@ class Event
     @tickets = []
   end
 
-  # def self.all
-  #   ObjectSpace.each_object(self).to_a
-  # end
+
+  def random_coordinate
+    return rand(20) - 10
+  end
+
 
 
 

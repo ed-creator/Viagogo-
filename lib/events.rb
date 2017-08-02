@@ -1,5 +1,4 @@
 
-
 class Events
 
   attr_accessor :event_list
@@ -9,18 +8,20 @@ class Events
   end
 
   def add_event(event)
-    event_list << event
+    coordinate_duplicate_check(event) ? event_list << event : nil
   end
+
+  def random_events(event)
+    10.times do |i|
+      add_event(event.new(i+1))
+    end
+  end
+  
+  private
 
   # A check for any duplicate cordinates
-  def coordinate_duplicate_check(x, y)
-    event_list.each {|event| puts event.coordinates}
-  end
-
-  def generate_random_events
-    10.times do |i|
-      event.add_event(Event.new(generate_random_coordinate,generate_random_coordinate,i+1))
-    end
+  def coordinate_duplicate_check(event)
+    event_list.each {|list| return false if event.coordinates == list.coordinates}
   end
 
 

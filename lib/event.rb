@@ -28,9 +28,6 @@ class Event
     return (x1 - x2).abs + (y1 - y2).abs
   end
 
-  def ticket_price
-  end
-
   private
 
   def random_coordinate

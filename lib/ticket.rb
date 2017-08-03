@@ -8,6 +8,10 @@ class Ticket
     @event_id = event_id
   end
 
+  def ticket_price
+    return "$#{price}"
+  end
+
   private
 
   def random_price

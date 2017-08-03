@@ -17,9 +17,9 @@ class Events
     end
   end
 
-  def closest_events()
-    top_five = event_list.sort_by {|event| event.manhatten_distance }
-    return top_five
+  def closest_events(base_coordinates)
+    top_five = event_list.sort_by {|event| event.manhatten_distance(base_coordinates) }
+    return top_five[0..4]
   end
 
   private
@@ -28,7 +28,5 @@ class Events
   def coordinate_duplicate_check(event)
     event_list.each {|list| return false if event.coordinates == list.coordinates}
   end
-
-
 
 end

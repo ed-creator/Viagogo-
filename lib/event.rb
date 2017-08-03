@@ -14,6 +14,11 @@ class Event
     tickets << ticket.new(id)
   end
 
+  def cheapest_ticket
+    tickets_by_price = tickets.sort_by {|ticket| ticket.price }
+    return tickets_by_price[0]
+  end
+
   # coordinates entered as [x,y]
   def manhatten_distance(base_coordinates)
     x1 = base_coordinates[0] + 10
@@ -21,6 +26,9 @@ class Event
     y1 = base_coordinates[1] + 10
     y2 = coordinates[1] + 10
     return (x1 - x2).abs + (y1 - y2).abs
+  end
+
+  def ticket_price
   end
 
   private

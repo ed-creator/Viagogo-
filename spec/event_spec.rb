@@ -20,4 +20,22 @@ describe Event do
       expect(event.tickets.count).to eq 1
     end
   end
+
+  describe '#manhatten_distance' do
+    it 'correctly calculates a manhatten distance of 0' do
+      expect(event.manhatten_distance([1,1])).to eq 0
+    end
+    it 'correctly calculates a manhatten distance of 2' do
+      expect(event.manhatten_distance([0,0])).to eq 2
+    end
+    it 'correctly calculates a manhatten distance of 8' do
+      expect(event.manhatten_distance([-3,-3])).to eq 8
+    end
+    it 'correctly calculates a manhatten distance of 10' do
+      expect(event.manhatten_distance([5,7])).to eq 10
+    end
+    it 'correctly calculates a manhatten distance of 5' do
+      expect(event.manhatten_distance([-3,2])).to eq 5
+    end
+  end
 end

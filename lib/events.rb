@@ -16,7 +16,12 @@ class Events
       add_event(event.new(i+1))
     end
   end
-  
+
+  def closest_events()
+    top_five = event_list.sort_by {|event| event.manhatten_distance }
+    return top_five
+  end
+
   private
 
   # A check for any duplicate cordinates

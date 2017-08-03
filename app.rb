@@ -3,8 +3,7 @@ require './lib/events'
 require './lib/ticket'
 
 def run_app
-  user_coordinates = []
-  set_up
+  events = set_up
   user_coordinates = user_choice
   user_coordinates
 end
@@ -24,6 +23,9 @@ def set_up
     event.add_ticket(Ticket)
     end
   }
+  return events
 end
+
+
 
 run_app

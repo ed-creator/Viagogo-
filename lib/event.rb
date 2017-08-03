@@ -14,15 +14,19 @@ class Event
     tickets << ticket.new(id)
   end
 
+  # coordinates entered as [x,y]
+  def manhatten_distance(base_coordinates)
+    x1 = base_coordinates[0] + 10
+    x2 = coordinates[0] + 10
+    y1 = base_coordinates[1] + 10
+    y2 = coordinates[1] + 10
+    return (x1 - x2).abs + (y1 - y2).abs
+  end
+
   private
 
   def random_coordinate
     return rand(20) - 10
   end
-
-
-
-
-
 
 end

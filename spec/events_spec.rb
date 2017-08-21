@@ -36,4 +36,16 @@ describe Events do
       expect(subject.event_list).not_to be_empty
     end
   end
+
+  describe '#closest_events' do
+    it'returns the top 5 closest events of a given coordinate
+    (tests for furthest of the 5)' do
+      10.times do |i|
+        subject.add_event(Event.new(i+1,i+1,i+1))
+      end
+      expect(subject.closest_events([0,0])[4].coordinates).to eq [5,5]
+      expect(subject.closest_events([0,0]).count).to eq 5
+      expect(subject.closest_events([10,10])[0].coordinates).to eq [10,10]
+    end
+  end
 end

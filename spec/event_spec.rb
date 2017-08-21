@@ -21,6 +21,23 @@ describe Event do
     end
   end
 
+  describe '#cheapest_ticket' do
+    it 'returns the cheapest ticket' do
+      ticket1 = Ticket.new(1,1)
+      event.tickets << ticket1
+      ticket2 = Ticket.new(2,1)
+      event.tickets << ticket2
+      expect(event.cheapest_ticket).to eq ticket1
+    end
+    it 'returns the cheapest ticket (different order)' do
+      ticket1 = Ticket.new(2,1)
+      event.tickets << ticket1
+      ticket2 = Ticket.new(1,1)
+      event.tickets << ticket2
+      expect(event.cheapest_ticket).to eq ticket2
+    end
+  end
+
   describe '#manhatten_distance' do
     it 'correctly calculates a manhatten distance of 0' do
       expect(event.manhatten_distance([1,1])).to eq 0

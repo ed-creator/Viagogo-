@@ -6,8 +6,7 @@ def run_app
   events = set_up
   user_coordinates = user_choice
   top_five = events.closest_events(user_coordinates)
-  top_five.each {|event| puts "Event Number: " + event.id.to_s + " -Price" + event.cheapest_ticket.ticket_price + " Distance: " + event.manhatten_distance(user_coordinates).to_s + " at coordinates " + event.coordinates.to_s}
-
+  top_five.each {|event| puts "Event Number: " + event.id.to_s + " " + event.cheapest_ticket.ticket_price + ", Distance: " + event.manhatten_distance(user_coordinates).to_s + " at coordinates " + event.coordinates.to_s}
 end
 
 def user_choice

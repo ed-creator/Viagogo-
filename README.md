@@ -1,5 +1,6 @@
 ## Viagogo Coding Challenge
 [![Coverage Status](https://coveralls.io/repos/github/edwardwardward/Viagogo-/badge.svg?branch=master)](https://coveralls.io/github/edwardwardward/Viagogo-?branch=master)
+[![Build Status](https://travis-ci.org/edwardwardward/Viagogo-.svg?branch=master)](https://travis-ci.org/edwardwardward/Viagogo-)
 
 ### To run the app
 

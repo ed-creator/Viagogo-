@@ -48,5 +48,25 @@ A simple ruby app that when given a pair of coordinates returns the 5 nearest ev
   Event Number: 2 $10, Distance: 8 at coordinates [4, 6]
   ```
   
+  ### My Approach
   
+Given the reqiurements I decided to split the app into it's largest clear component parts: Event, Ticket and Events -  each of these formed a class that would be the basis for the app. 
+  
+  #### Event
+  
+  The Event class is initialized with an id, and a set of coordinates, it is also holds tickets and has a method that returns the  
+  
+  #### Ticket
+  
+  The Ticket class is initialized with a price and an event id which links it to the event it belongs to. There is a method for returning the price in a readable format. 
+
+  #### Events
+
+The Events class is responsible for holding a pool of Events(and through Events, Tickets). It's initialized with an event list as an empty array. The class has methods for adding events, generating random events and retriving the 5 closest events. There is also a private method that checks if a event is a dupliacte (has the same coordinates of an existing event in the event list) - this is used inside the add event method and blocks the event if it is in fact a duplicate. 
+
+#### App
+
+In order to run the app a further app.rb is used. It creates a new instance of Events, populates the Events instance with 10 events and adds 5 tickets to each of those events(method: set_up). It then asks the user for an input and parses that input into x, y coordinates (e.g. [2,4])(method: user_choice). Finally the app checks the manhatten distance of each event with the user inputed coordinates and returns the closest 5 events and their relevant output.
+
+
   

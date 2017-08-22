@@ -66,7 +66,7 @@ The Events class is responsible for holding a pool of Events(and through Events,
 
 #### App
 
-In order to run the app a further app.rb is used. It creates a new instance of Events, populates the Events instance with 10 events and adds 5 tickets to each of those events(method: set_up). It then asks the user for an input and parses that input into x, y coordinates (e.g. [2,4])(method: user_choice). Finally the app checks the manhatten distance of each event with the user inputed coordinates and returns the closest 5 events and their relevant output.
+In order to run the app a further app.rb is used. It creates a new instance of Events, populates the Events instance with 10 events and adds 5 tickets to each of those events(method: set_up). It then asks the user for an input and parses that input into x, y coordinates (e.g. [2,4])(method: user_choice). Finally the app checks the manhatten distance of each event with the user inputed coordinates and returns the closest 5 events and their relevant output(method: top_five_output).
 
 
   

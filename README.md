@@ -17,9 +17,12 @@ A simple ruby app that when given a pair of coordinates returns the 5 nearest ev
 
 ### To run the app
 
+  If bundle isn't intalled yet run brew ```brew install bundle``` before bundle install.
+
   ```
   $ git clone https://github.com/edwardwardward/Viagogo-.git
   $ cd Viagogo-
+  $ bundle install
   $ ruby app.rb
   ```
   
@@ -35,4 +38,15 @@ A simple ruby app that when given a pair of coordinates returns the 5 nearest ev
   -3, 7
   ```
   
-  The app will return a list of the five closest events and their respective cheapest tickets.
+  The app will then display the relevant information, e.g.:
+  
+  ```
+  Event Number: 4 $47, Distance: 2 at coordinates [-2, 8]
+  Event Number: 6 $25, Distance: 6 at coordinates [1, 9]
+  Event Number: 8 $4, Distance: 6 at coordinates [-9, 7]
+  Event Number: 5 $15, Distance: 8 at coordinates [5, 7]
+  Event Number: 2 $10, Distance: 8 at coordinates [4, 6]
+  ```
+  
+  
+  

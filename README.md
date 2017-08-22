@@ -64,10 +64,29 @@ Given the reqiurements I decided to split the app into it's largest clear compon
 
 The Events class is responsible for holding a pool of Events(and through Events, Tickets). It's initialized with an event list as an empty array. The class has methods for adding events, generating random events and retriving the 5 closest events. There is also a private method that checks if a event is a dupliacte (has the same coordinates of an existing event in the event list) - this is used inside the add event method and blocks the event if it is in fact a duplicate. 
 
-#### App
+  #### App
 
 In order to run the app a further app.rb is used. It creates a new instance of Events, populates the Events instance with 10 events and adds 5 tickets to each of those events(method: set_up). It then asks the user for an input and parses that input into x, y coordinates (e.g. [2,4])(method: user_choice). Finally the app checks the manhatten distance of each event with the user inputed coordinates and returns the closest 5 events and their relevant output(method: top_five_output).
 
+#### Supporting multiple events at the same location?
+
+Currently the app does not support multiple events at the same location. There is a simple way enable this:
+
+* Remove the `duplicate_event_check?` from inside the `add_event` method in the Events Class - so that `add_event` is now:
+  `def add_event(event)
+    event_list << event 
+  end`
+
+#### working with a much larger world size?
+
+Currently the app is not equiped to work with a very large world size, there are several issue I would address:
+
+* The gird size is currently limited to -10..10, adapting this is a simple fix. The Event Class has the code:
+    `raise ("cordinates must be within range") if 10 > y && y < -10
+    raise ("cordinates must be within range") if 10 > x && x < -10`
+  to increase the limits of the world size inrease the 10's to a larger number.   
+
+* Assuming a world size increase also leads to more events being added calculating the manhtten distance may also be an issue. The manhatten distance is calculated through cycling all events in the event list - it would be better to have this precalculated and stored for coordinates so that calculation would not have to be done at the time the user interacts with the program - events would simply be sorted and the top ones returned. 
 
 ### Tests
 
